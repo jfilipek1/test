@@ -21,13 +21,23 @@
           <th scope="col">Name</th>
           <th scope="col">Position</th>
           <th scope="col">Nationality</th>
+          <th scope="col">Name</th>
+          <th scope="col">Position</th>
+          <th scope="col">Nationality</th>
+          <th scope="col">Name</th>
+          <th scope="col">Position</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="topscorer in topscorers">
+          <td>{{ topscorer.player_id }}</td>
+          <td>{{ topscorer.player_name }}</td>
           <td>{{ topscorer.firstname }}</td>
+          <td>{{ topscorer.lastname }}</td>
           <td>{{ topscorer.position }}</td>
           <td>{{ topscorer.nationality }}</td>
+          <td>{{ topscorer.team_id }}</td>
+          <td>{{ topscorer.team_name }}</td>
         </tr>
       </tbody>
     </table>
