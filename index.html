@@ -32,28 +32,21 @@
       </tbody>
     </table>
   </div>
-  <script>
+ <script>
     var app = new Vue({
       el: '#app',
       data: {
         topscorers: []
       },
-     
       mounted: function() {
-        fetch("https://api-football-v1.p.rapidapi.com/v2/topscorers/4", {
-	        "method": "GET",
-	        "headers": {
-		        "x-rapidapi-host": "api-football-v1.p.rapidapi.com",
-		        "x-rapidapi-key": "c7a257e1fbmsh870c93a82c522dbp1d7524jsn48c28003d04a"
-	        }
-      })
-        .then(response => {
-          this.topscorers = response.data;
-	        console.log(response);
-        })
-        .catch(err => {
-        	console.log(err);
-        });
+        axios.get('./scorers.json')
+            .then(response => {
+              this.topscorers = response.data;
+              console.log(response);
+            })
+            .catch(error => {
+              console.log(error);
+            });
       }
     })
   </script>
