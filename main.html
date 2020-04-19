@@ -39,7 +39,7 @@
         topscorers: []
       },
       mounted: function() {
-        axios.get('./api.json')
+        axios.get('./scorers.json')
             .then(response => {
               this.topscorers = response.data;
               console.log(response);
