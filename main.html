@@ -1,42 +1,56 @@
-  
 <!DOCTYPE html>
-<html>
-	<head>
-		<title>Scorers</title>
-		<meta charset="UTF-8">
-	</head>
-	<body>
-		<h1>Top scorers</h1>
-		<p>ranking</p>
-        <input type="button" value="Display data" onclick="connect()">
-        <ol id="list">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <!-- Bootstrap CSS 4.3.1 -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-        </ol>
+  <!-- Axios -->
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
-		<script>
-			const connect = () => {
-				let method = "GET"
-				let req = new XMLHttpRequest()
-                let api = `./api.json`
-                req.open(method, api)
-				req.onreadystatechange = function() {
-					if(this.readyState == 4 && this.status == 200) {
-                        let data = JSON.parse(this.responseText)
-                        addListItem(data)
-					}
-                }
-				req.send()
-            }
-            
-            const addListItem = data => {
-                for(let i=0; i<data.length; i++) {
-                    let listItem = document.createElement("li")
-                    let personalData = document.createTextNode(`${data[i].player_name} ${data[i].position}, ${data[i].nationality}`)
-                    listItem.appendChild(personalData)
-                    document.getElementById("list").appendChild(listItem)
-                }
-            }
+  <!-- VueJS -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div class="container mt-4" id="app">
 
-		</script>
-	</body>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Position</th>
+          <th scope="col">Nationality</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="topscorer, index in topscorers">
+          <th scope="row">{{ index + 1 }}</th>
+          <td>{{ user.player_name }}</td>
+          <td>{{ user.position }}</td>
+          <td>{{ user.nationality }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        users: []
+      },
+      mounted: function() {
+        axios.get('./api.json')
+            .then(response => {
+              this.users = response.data;
+              console.log(response);
+            })
+            .catch(error => {
+              console.log(error);
+            });
+      }
+    })
+  </script>
+</body>
 </html>
