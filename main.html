@@ -25,9 +25,9 @@
       </thead>
       <tbody>
         <tr v-for="topscorer in topscorers">
-          <td>{{ user.player_name }}</td>
-          <td>{{ user.position }}</td>
-          <td>{{ user.nationality }}</td>
+          <td>{{ topscorer.player_name }}</td>
+          <td>{{ topscorer.position }}</td>
+          <td>{{ topscorer.nationality }}</td>
         </tr>
       </tbody>
     </table>
@@ -36,12 +36,12 @@
     var app = new Vue({
       el: '#app',
       data: {
-        users: []
+        topscorers: []
       },
       mounted: function() {
         axios.get('./api.json')
             .then(response => {
-              this.users = response.data;
+              this.topscorers = response.data;
               console.log(response);
             })
             .catch(error => {
