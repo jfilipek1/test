@@ -18,15 +18,13 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th scope="col">#</th>
           <th scope="col">Name</th>
           <th scope="col">Position</th>
           <th scope="col">Nationality</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="topscorer, index in topscorers">
-          <th scope="row">{{ index + 1 }}</th>
+        <tr v-for="topscorer in topscorers">
           <td>{{ user.player_name }}</td>
           <td>{{ user.position }}</td>
           <td>{{ user.nationality }}</td>
