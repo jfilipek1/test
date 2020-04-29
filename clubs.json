@@ -1,0 +1,20 @@
+[
+    {
+      "id": "1001",
+      "name": "FC Barcelona",
+      "code": "BAR",
+      "download_url":"https://www.kitme.net/image/cache/catalog/clubs/FC%20Barcelona1-600x600.png"
+    },
+    {
+      "id": "1002",
+      "name": "Real Madrid",
+      "code": "RMD",
+      "download_url":"https://i.pinimg.com/originals/13/17/4a/13174a0fee676d3a6a94acf777aa74c2.png"
+    },
+    {
+      "id": "1003",
+      "name": "Atlético Madrid",
+      "code": "ATL",
+      "download_url":"https://www.logofootball.net/wp-content/uploads/Atletico-Madrid-Logo-768x768.png"
+    }
+  ]
